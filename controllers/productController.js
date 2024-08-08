@@ -4,8 +4,11 @@ const Product = require('../models/product');
 const  getProducts = async (req, res) => {
     try {
       const products = await Product.find().populate('category').populate('shop');
+      console.log(products)
       res.status(200).json(products);
     } catch (error) {
+      console.log(erro 
+      )
       res.status(500).json({ error: 'Failed to fetch products' });
     }
   }
@@ -13,7 +16,7 @@ const  getProducts = async (req, res) => {
 
 const  getProductById = async (req, res) => {
     try {
-      const product = await Product.findById(req.params.id).populate('category').populate('shop');
+      const product = await Product.findById(req.params.id).populate('category').populate('shop').exec();
       if (!product) {
         return res.status(404).json({ error: 'Product not found' });
       }

@@ -3,6 +3,7 @@ const Shop = require('../models/shop');
 const  getShops = async (req, res) => {
     try {
       const shops = await Shop.find().populate('owner').populate('products');
+      console.log(shops)
       res.status(200).json(shops);
     } catch (error) {
       res.status(500).json({ error: 'Failed to fetch shops' });
@@ -65,4 +66,3 @@ module.exports={
   updateShop,
   deleteShop,
  };
-
