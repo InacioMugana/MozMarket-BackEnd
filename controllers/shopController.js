@@ -2,7 +2,7 @@ const Shop = require('../models/shop');
 
 const  getShops = async (req, res) => {
     try {
-      const shops = await Shop.find().populate('owner').populate('products');
+      const shops = await Shop.find().populate('owner');
       console.log(shops)
       res.status(200).json(shops);
     } catch (error) {
