@@ -22,6 +22,7 @@ const getCategoryById = async (req, res) => {
 };
 
 const createCategory = async (req, res) => {
+  console.log("chidic");
   try {
     const category = new Category(req.body);
     await category.save();
@@ -57,6 +58,11 @@ const deleteCategory = async (req, res) => {
   }
 };
 
-module.exports ={
-  getCategories,deleteCategory,updateCategory,createCategory,getCategories,getCategoryById
-}
+module.exports = {
+  getCategories,
+  deleteCategory,
+  updateCategory,
+  createCategory,
+  getCategories,
+  getCategoryById,
+};
